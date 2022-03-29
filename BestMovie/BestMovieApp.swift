@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct BestMovieApp: App {
+    @StateObject var moviesViewModel = MoviesVM()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MoviesView(viewModel: moviesViewModel)
         }
     }
 }
