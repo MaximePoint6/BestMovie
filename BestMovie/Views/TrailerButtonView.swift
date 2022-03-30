@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct TrailerButtonView: View {
+    
+    @State private var showingSheet = false
+    @ObservedObject var viewModel: MovieDetailsVM
+    @Binding var idMovie: Int
+    
     var body: some View {
             Button {
-                //
+                showingSheet.toggle()
             } label: {
                 HStack {
                     Image(systemName: "play.fill")
@@ -22,13 +27,19 @@ struct TrailerButtonView: View {
                     .padding(.horizontal, 12)
                     .background(Color("Background"))
                     .clipShape(Capsule())
+            }.sheet(isPresented: $showingSheet) {
+                TrailerMovie(viewModel: viewModel, idMovie: $idMovie)
             }
     }
 }
 
 struct TrailerButtonView_Previews: PreviewProvider {
+    
+    @StateObject static var viewModel = MovieDetailsVM()
+    @State static private var idMovie = 550
+    
     static var previews: some View {
-        TrailerButtonView()
+        TrailerButtonView(viewModel: viewModel, idMovie: $idMovie)
             .previewLayout(.sizeThatFits)
     }
 }

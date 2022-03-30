@@ -11,6 +11,7 @@ import Foundation
     
     @Published var movieDetails: MovieDetails?
     @Published var isLoading: Bool = false
+    @Published var videos: MovieVideos?
     let moviesRepository = MoviesRepository()
 
     
@@ -86,6 +87,21 @@ import Foundation
         let Mydate = String(releaseDate.prefix(4))
         return Mydate
     }
+
+    
+    var keys: String {
+        guard let movieVideos = videos?.results else {
+            return ""
+        }
+        if movieVideos.count > 0 && movieVideos[0].site == "YouTube" {
+            let key = movieVideos[0].key
+            print(key)
+            return key
+        } else {
+            return ""
+        }
+    }
+    
     
     func loadData(movieID : Int) async {
         isLoading = true
@@ -94,6 +110,16 @@ import Foundation
             return
         }
         movieDetails = response
+        isLoading = false
+    }
+    
+    func movieVideos(movieID : Int) async {
+        isLoading = true
+        guard let response = await moviesRepository.movieVideos(movieId: movieID) else {
+            isLoading = false
+            return
+        }
+        videos = response
         isLoading = false
     }
 }

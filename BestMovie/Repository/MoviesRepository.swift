@@ -10,7 +10,6 @@ import Foundation
 class MoviesRepository {
     
     func popularMovies(page: Int) async -> PopularMovies? {
-        
         guard let url = URL(string : "https://api.themoviedb.org/3/movie/popular?api_key=0c2ecacd365f6bba06193dcf0475617d&language=fr-FR&page=\(page)") else {
             print ("Error URL")
             return nil
@@ -45,6 +44,23 @@ class MoviesRepository {
         }
     }
     
+    
+    func movieVideos(movieId: Int) async -> MovieVideos? {
+        guard let url = URL(string : "https://api.themoviedb.org/3/movie/\(movieId)/videos?api_key=0c2ecacd365f6bba06193dcf0475617d&language=fr-FR") else {
+            print ("Error URL")
+            return nil
+        }
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            guard let decodedResponse = try? SnakeCaseJSONDecoder().decode(MovieVideos.self, from: data) else {
+                return nil
+            }
+            return decodedResponse
+        } catch {
+            print("Invalid data")
+            return nil
+        }
+    }
     
 }
 

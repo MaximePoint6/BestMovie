@@ -45,7 +45,7 @@ struct MovieDetailsView: View {
                         Text(viewModel.tagline)
                             .font(.caption)
                             .fontWeight(.bold)
-                        TrailerButtonView()
+                        TrailerButtonView(viewModel: viewModel, idMovie: $idMovie)
                             .padding(.bottom)
                         Text("Genres : \(viewModel.genres)")
                             .font(.caption)
