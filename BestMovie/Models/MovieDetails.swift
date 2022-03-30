@@ -11,13 +11,13 @@ struct MovieDetails: Identifiable, Codable {
 
     //let adult: Bool
     let backdropPath: String?
-    //let belongs_to_collection: String?
+    //let belongsToCollection: String?
     //let budget: Int
     //let homepage: String?
     let id:Int
-    //let imdb_id: String?
-    //let original_language: String
-    //let original_title: String
+    //let imdbId: String?
+    //let originalLanguage: String
+    //let originalTitle: String
     let overview: String?
     let popularity: Float
     let posterPath: String?
@@ -31,9 +31,9 @@ struct MovieDetails: Identifiable, Codable {
     let voteAverage: Float
     let voteCount: Int
     let genres: [Genres]
-    //let production_companies: [Production_companies]
-    //let production_countries: [Production_countries]
-    //let spoken_languages: [Spoken_languages]
+    //let productionCompanies: [Production_companies]
+    //let productionCountries: [Production_countries]
+    //let spokenLanguages: [Spoken_languages]
 
     struct Genres: Identifiable, Codable, Equatable {
         let id: Int
@@ -43,17 +43,17 @@ struct MovieDetails: Identifiable, Codable {
 //    struct Production_companies: Identifiable, Codable, Equatable {
 //        let name: String
 //        let id: Int
-//        let logo_path: String?
-//        let origin_country: String
+//        let logoPath: String?
+//        let originCountry: String
 //    }
 
-//    struct Production_countries: Codable, Equatable {
-//        let iso_3166_1: String
+//    struct ProductionCountries: Codable, Equatable {
+//        let iso31661: String
 //        let name: String
 //    }
 //
 //    struct Spoken_languages: Codable, Equatable {
-//        let iso_639_1: String
+//        let iso6391: String
 //        let name: String
 //    }
 

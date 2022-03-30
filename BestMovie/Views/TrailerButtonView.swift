@@ -20,7 +20,7 @@ struct TrailerButtonView: View {
                         .foregroundColor(.white)
                 }.padding(.vertical, 8)
                     .padding(.horizontal, 12)
-                    .background(.gray)
+                    .background(Color("Background"))
                     .clipShape(Capsule())
             }
     }

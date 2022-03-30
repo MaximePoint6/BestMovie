@@ -13,7 +13,6 @@ import Foundation
     @Published var isLoading: Bool = false
     var page: Int = 1
     var totalPages: Int = 1
-    
     let moviesRepository = MoviesRepository()
     
     func fetchDataIfNeeded(movie: PopularMovies.Movie) async {
@@ -22,7 +21,6 @@ import Foundation
             await loadData()
         }
     }
-    
     
     func loadData() async {
         isLoading = true

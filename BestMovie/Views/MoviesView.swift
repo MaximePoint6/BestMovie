@@ -11,12 +11,16 @@ struct MoviesView: View {
     
     @ObservedObject var viewModel: MoviesVM
     
+    @State private var showingSheet = false
+    @State var movieID: Int = 0
+    
     var body: some View {
         NavigationView {
             VStack {
                 List (viewModel.popularMovies) { movie in
-                    NavigationLink  {
-                            MovieDetailsView(idMovie: movie.id)
+                    Button  {
+                        self.movieID = movie.id
+                        self.showingSheet.toggle()
                     } label: {
                         HStack {
                             AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500/\(movie.posterPath ?? "")")){ image in
@@ -41,10 +45,10 @@ struct MoviesView: View {
                                     .lineLimit(3)
                                     .padding(.bottom, 3)
                                     .foregroundColor(.gray)
-                                HStack {
+                                HStack (alignment: .center){
                                     Image(systemName: "star.fill")
                                         .resizable()
-                                        .frame(width: 12, height: 12)
+                                        .frame(width: 15, height: 15)
                                         .foregroundColor(.orange)
                                     Text(String(format: "%.1f", movie.voteAverage))
                                         .font(.footnote)
@@ -55,14 +59,17 @@ struct MoviesView: View {
                     .task {
                         await viewModel.fetchDataIfNeeded(movie: movie)
                     }
+                }.sheet(isPresented: $showingSheet) {
+                    if let movieIDValid = $movieID {
+                        MovieDetailsView(idMovie: movieIDValid)
+                    }
                 }
                 if viewModel.isLoading {
-                        ProgressView ()
+                    ProgressView ()
                 }
             }
             .navigationTitle("Films populaires")
-        }.accentColor(.white)
-            .task {
+        }.task {
             await viewModel.loadData()
         }
     }

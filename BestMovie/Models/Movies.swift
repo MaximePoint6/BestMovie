@@ -18,13 +18,13 @@ struct PopularMovies: Codable {
         let posterPath: String?
         //let adult: Bool
         let overview: String
-        //let release_date: String
-        //let genre_ids:[Int]
+        //let releaseDate: String
+        //let genreIds:[Int]
         let id: Int
-        //let original_title: String
-        //let original_language: String
+        //let originalTitle: String
+        //let originalLanguage: String
         let title: String
-        //let backdrop_path: String?
+        //let backdropPath: String?
         let popularity: Float
         let voteCount: Int
         //let video: Bool

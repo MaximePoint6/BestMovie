@@ -11,22 +11,13 @@ class MoviesRepository {
     
     func popularMovies(page: Int) async -> PopularMovies? {
         
-        // On verifie l'url
         guard let url = URL(string : "https://api.themoviedb.org/3/movie/popular?api_key=0c2ecacd365f6bba06193dcf0475617d&language=fr-FR&page=\(page)") else {
             print ("Error URL")
             return nil
         }
         do {
-            // On verifie si on peut recuperer les datas (en gros si on a internet ou pas etc)
             let (data, _) = try await URLSession.shared.data(from: url)
-            // On verifie si on peut decoder les datas json
             guard let decodedResponse = try? SnakeCaseJSONDecoder().decode(PopularMovies.self, from: data) else {
-//                DispatchQueue.main.async {
-//                    self.popularMovies.append(contentsOf: decodedResponse)
-//                    //popularMovies = decodedResponse.results
-//                    self.totalPages = decodedResponse.total_results
-//                    self.isLoading = false
-//                }
                 return nil
             }
             return decodedResponse
@@ -43,14 +34,8 @@ class MoviesRepository {
             return nil
         }
         do {
-            // On verifie si on peut recuperer les datas (en gros si on a internet ou pas etc)
             let (data, _) = try await URLSession.shared.data(from: url)
-            // On verifie si on peut decoder les datas json
             guard let decodedResponse = try? SnakeCaseJSONDecoder().decode(MovieDetails.self, from: data) else {
-//                DispatchQueue.main.async {
-//                    self.movieDetails = decodedResponse
-//                    self.isLoading = false
-//                }
                 return nil
             }
             return decodedResponse
