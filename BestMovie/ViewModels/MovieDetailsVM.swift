@@ -7,10 +7,12 @@
 
 import Foundation
 
-class MovieDetailsVM: ObservableObject {
+@MainActor class MovieDetailsVM: ObservableObject {
     
     @Published var movieDetails: MovieDetails?
     @Published var isLoading: Bool = false
+    
+    let moviesRepository = MoviesRepository()
     
 //    var backdrop_path: String {
 //        guard let backdrop_path = movieDetails?.backdrop_path else {
@@ -71,27 +73,35 @@ class MovieDetailsVM: ObservableObject {
 //    }
 //    
     
-
-    
-    func fetchMovie(movieId: Int) async {
-        guard let url = URL(string : "https://api.themoviedb.org/3/movie/\(movieId)?api_key=0c2ecacd365f6bba06193dcf0475617d&language=fr-FR") else {
-            print ("Error URL")
+    func loadData(movieID : Int) async {
+        isLoading = true
+        guard let response = await moviesRepository.movieDetails(movieId: movieID) else {
+            isLoading = false
             return
         }
-        isLoading = true
-        
-        do {
-            // On verifie si on peut recuperer les datas (en gros si on a internet ou pas etc)
-            let (data, _) = try await URLSession.shared.data(from: url)
-            // On verifie si on peut decoder les datas json
-            if let decodedResponse = try? JSONDecoder().decode(MovieDetails.self, from: data){
-                DispatchQueue.main.async {
-                    self.movieDetails = decodedResponse
-                    self.isLoading = false
-                }
-            }
-        } catch {
-            print("Invalid data")
-        }
+        movieDetails = response
+        isLoading = false
     }
+    
+//    func fetchMovie(movieId: Int) async {
+//        guard let url = URL(string : "https://api.themoviedb.org/3/movie/\(movieId)?api_key=0c2ecacd365f6bba06193dcf0475617d&language=fr-FR") else {
+//            print ("Error URL")
+//            return
+//        }
+//        isLoading = true
+//
+//        do {
+//            // On verifie si on peut recuperer les datas (en gros si on a internet ou pas etc)
+//            let (data, _) = try await URLSession.shared.data(from: url)
+//            // On verifie si on peut decoder les datas json
+//            if let decodedResponse = try? JSONDecoder().decode(MovieDetails.self, from: data){
+//                DispatchQueue.main.async {
+//                    self.movieDetails = decodedResponse
+//                    self.isLoading = false
+//                }
+//            }
+//        } catch {
+//            print("Invalid data")
+//        }
+//    }
 }

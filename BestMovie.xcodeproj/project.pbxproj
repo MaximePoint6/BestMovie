@@ -22,6 +22,7 @@
 		CA98721D27F3142F00F1F388 /* PosterGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA98721C27F3142F00F1F388 /* PosterGridView.swift */; };
 		CA98722527F332A800F1F388 /* TrailerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA98722427F332A800F1F388 /* TrailerButtonView.swift */; };
 		CA98722827F3413900F1F388 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA98722727F3413900F1F388 /* DateFormatter.swift */; };
+		CA98722E27F43C0F00F1F388 /* MoviesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA98722D27F43C0F00F1F388 /* MoviesRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		CA98721C27F3142F00F1F388 /* PosterGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterGridView.swift; sourceTree = "<group>"; };
 		CA98722427F332A800F1F388 /* TrailerButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerButtonView.swift; sourceTree = "<group>"; };
 		CA98722727F3413900F1F388 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		CA98722D27F43C0F00F1F388 /* MoviesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				CA900AFA27F3046400E941BB /* LoadFromJson.swift */,
 				CA900AFC27F304A400E941BB /* MovieDetailsExample.json */,
 				CA900B0227F309D200E941BB /* PopularMovieExample.json */,
+				CA98722C27F43BD200F1F388 /* Repository */,
 				CA900AE127F0D7BE00E941BB /* Views */,
 				CA900AE227F0D7CA00E941BB /* ViewModels */,
 				CA900AE027F0D7B600E941BB /* Models */,
@@ -130,6 +133,14 @@
 				CA98722727F3413900F1F388 /* DateFormatter.swift */,
 			);
 			path = Dates;
+			sourceTree = "<group>";
+		};
+		CA98722C27F43BD200F1F388 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				CA98722D27F43C0F00F1F388 /* MoviesRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +219,7 @@
 				CA900AF027F1F2E200E941BB /* MoviesView.swift in Sources */,
 				CA98722827F3413900F1F388 /* DateFormatter.swift in Sources */,
 				CA900AF227F2017700E941BB /* MovieDetailsView.swift in Sources */,
+				CA98722E27F43C0F00F1F388 /* MoviesRepository.swift in Sources */,
 				CA900AD127EF747C00E941BB /* BestMovieApp.swift in Sources */,
 				CA98721D27F3142F00F1F388 /* PosterGridView.swift in Sources */,
 				CA900AE427F0D80F00E941BB /* Movies.swift in Sources */,

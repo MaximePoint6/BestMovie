@@ -19,7 +19,7 @@ struct MoviesView: View {
                             MovieDetailsView(idMovie: movie.id)
                     } label: {
                         HStack {
-                            AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500/\(movie.poster_path ?? "")")){ image in
+                            AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500/\(movie.posterPath ?? "")")){ image in
                                 image.resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .cornerRadius(15)
@@ -46,7 +46,7 @@ struct MoviesView: View {
                                         .resizable()
                                         .frame(width: 12, height: 12)
                                         .foregroundColor(.orange)
-                                    Text(String(format: "%.1f", movie.vote_average))
+                                    Text(String(format: "%.1f", movie.voteAverage))
                                         .font(.footnote)
                                 }
                             }
@@ -74,6 +74,5 @@ struct MoviesView_Previews: PreviewProvider {
     
     static var previews: some View {
         MoviesView(viewModel: viewModel)
-            //.environmentObject(popularMoviesViewModel)
     }
 }

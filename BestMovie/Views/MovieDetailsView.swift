@@ -15,7 +15,7 @@ struct MovieDetailsView: View {
     var body: some View {
         VStack (alignment: .leading){
             ZStack (alignment: .bottomLeading){
-                AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500/\(viewModel.movieDetails?.backdrop_path ?? "")")){ image in
+                AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500/\(viewModel.movieDetails?.backdropPath ?? "")")){ image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -45,14 +45,22 @@ struct MovieDetailsView: View {
                         .fontWeight(.bold)
                     TrailerButtonView()
                         .padding(.bottom)
-                    Text("Date de sortie : \(viewModel.movieDetails?.release_date ?? "")")
+                    Text("Date de sortie : \(viewModel.movieDetails?.releaseDate ?? "")")
                         .font(.caption)
-                        .padding(.bottom)
+                    HStack {
+                        Image(systemName: "star.fill")
+                            .resizable()
+                            .frame(width: 12, height: 12)
+                            .foregroundColor(.orange)
+                        Text(String(format: "%.1f", viewModel.movieDetails?.voteAverage ?? ""))
+                            .font(.footnote)
+                    }
+
 //                    Text("Genres : \(viewModel.genres)")
 //                        .font(.caption)
                 }
                 Spacer()
-                AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500/\(viewModel.movieDetails?.poster_path ?? "")")){ image in
+                AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500/\(viewModel.movieDetails?.posterPath ?? "")")){ image in
                     image.resizable()
                         .aspectRatio(contentMode: .fill)
                         .cornerRadius(5)
@@ -67,24 +75,15 @@ struct MovieDetailsView: View {
                 .cornerRadius(5)
             }.padding()
             
-            VStack {
-//                Text("Note moyenne : \(viewModel.movieDetails?.vote_average)")
-//                    .font(.caption)
-//                    .fontWeight(.bold)
-//                    .foregroundColor(.white)
-//                Text("Nombre de vote : \(viewModel.movieDetails?.vote_count)")
-//                    .font(.caption)
-//                    .fontWeight(.bold)
-//                    .foregroundColor(.white)
-                Text(viewModel.movieDetails?.overview ?? "")
+            VStack (alignment: .leading){                Text(viewModel.movieDetails?.overview ?? "")
                     .font(.caption)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                 Spacer()
-            }
+            }.padding()
         }.ignoresSafeArea()
             .task {
-                await viewModel.fetchMovie(movieId: idMovie)
+                await viewModel.loadData(movieID: idMovie)
             }
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 struct MovieDetails: Identifiable, Codable {
 
     //let adult: Bool
-    let backdrop_path: String?
+    let backdropPath: String?
     //let belongs_to_collection: String?
     //let budget: Int
     //let homepage: String?
@@ -20,16 +20,16 @@ struct MovieDetails: Identifiable, Codable {
     //let original_title: String
     let overview: String?
     let popularity: Float
-    let poster_path: String?
-    let release_date: String
+    let posterPath: String?
+    let releaseDate: String
     //let revenue: Int
     //let runtime: Int?
     //let status: String
     let tagline: String?
     let title: String
     //let video: Bool
-    let vote_average: Float
-    let vote_count: Int
+    let voteAverage: Float
+    let voteCount: Int
     let genres: [Genres]
     //let production_companies: [Production_companies]
     //let production_countries: [Production_countries]
