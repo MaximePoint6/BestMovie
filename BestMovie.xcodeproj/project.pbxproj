@@ -26,6 +26,7 @@
 		CA98723827F4A32400F1F388 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA98723727F4A32400F1F388 /* VideoView.swift */; };
 		CA98723A27F4A8CF00F1F388 /* TrailerMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA98723927F4A8CF00F1F388 /* TrailerMovie.swift */; };
 		CA98723C27F4AF7200F1F388 /* MovieVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA98723B27F4AF7200F1F388 /* MovieVideo.swift */; };
+		CAF8A07528EEF9F40064E55C /* PrivateConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF8A07428EEF9F40064E55C /* PrivateConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,8 @@
 		CA98723727F4A32400F1F388 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		CA98723927F4A8CF00F1F388 /* TrailerMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerMovie.swift; sourceTree = "<group>"; };
 		CA98723B27F4AF7200F1F388 /* MovieVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieVideo.swift; sourceTree = "<group>"; };
+		CAF8A07328EEF41C0064E55C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CAF8A07428EEF9F40064E55C /* PrivateConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		CA900ACF27EF747C00E941BB /* BestMovie */ = {
 			isa = PBXGroup;
 			children = (
+				CAF8A07328EEF41C0064E55C /* Info.plist */,
 				CA900AD027EF747C00E941BB /* BestMovieApp.swift */,
 				CA98722F27F481BF00F1F388 /* JustifiedText.swift */,
 				CA98723727F4A32400F1F388 /* VideoView.swift */,
@@ -140,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				CA98722D27F43C0F00F1F388 /* MoviesRepository.swift */,
+				CAF8A07428EEF9F40064E55C /* PrivateConstants.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 				CA900AE427F0D80F00E941BB /* Movies.swift in Sources */,
 				CA98722527F332A800F1F388 /* TrailerButtonView.swift in Sources */,
 				CA900AEE27F1F2B100E941BB /* MoviesVM.swift in Sources */,
+				CAF8A07528EEF9F40064E55C /* PrivateConstants.swift in Sources */,
 				CA900AF627F206C900E941BB /* MovieDetails.swift in Sources */,
 				CA900AFB27F3046400E941BB /* LoadFromJson.swift in Sources */,
 			);
@@ -364,6 +370,7 @@
 				DEVELOPMENT_TEAM = 3SQYF6L285;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BestMovie/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -393,6 +400,7 @@
 				DEVELOPMENT_TEAM = 3SQYF6L285;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BestMovie/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -15,6 +15,10 @@ struct TrailerMovie: View {
     
     var body: some View {
         VStack {
+            if viewModel.isLoading {
+                Text("Chargement de la vidéo")
+                    .padding()
+            }
             VideoView(videoID: viewModel.keys)
                 .frame(minHeight: 0, maxHeight: UIScreen.main.bounds.height)
                 .scaledToFit()

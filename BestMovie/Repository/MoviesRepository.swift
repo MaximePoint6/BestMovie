@@ -10,7 +10,7 @@ import Foundation
 class MoviesRepository {
     
     func popularMovies(page: Int) async -> PopularMovies? {
-        guard let url = URL(string : "https://api.themoviedb.org/3/movie/popular?api_key=0c2ecacd365f6bba06193dcf0475617d&language=fr-FR&page=\(page)") else {
+        guard let url = URL(string : "https://api.themoviedb.org/3/movie/popular?api_key=\(apiKey)&language=fr-FR&page=\(page)") else {
             print ("Error URL")
             return nil
         }
@@ -28,7 +28,7 @@ class MoviesRepository {
     
     
     func movieDetails(movieId: Int) async -> MovieDetails? {
-        guard let url = URL(string : "https://api.themoviedb.org/3/movie/\(movieId)?api_key=0c2ecacd365f6bba06193dcf0475617d&language=fr-FR") else {
+        guard let url = URL(string : "https://api.themoviedb.org/3/movie/\(movieId)?api_key=\(apiKey)&language=fr-FR") else {
             print ("Error URL")
             return nil
         }
@@ -46,7 +46,7 @@ class MoviesRepository {
     
     
     func movieVideos(movieId: Int) async -> MovieVideos? {
-        guard let url = URL(string : "https://api.themoviedb.org/3/movie/\(movieId)/videos?api_key=0c2ecacd365f6bba06193dcf0475617d&language=fr-FR") else {
+        guard let url = URL(string : "https://api.themoviedb.org/3/movie/\(movieId)/videos?api_key=\(apiKey)&language=fr-FR") else {
             print ("Error URL")
             return nil
         }
